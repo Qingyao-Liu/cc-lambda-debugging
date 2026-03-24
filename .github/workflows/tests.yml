@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./tests
+        working-directory: ./challenges
     steps:
       - name: Checkout to working directory
         uses: actions/checkout@v5
