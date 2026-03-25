@@ -37,13 +37,13 @@ jobs:
     steps:
       - name: Checkout to working directory
         uses: actions/checkout@v5
-        
+
       - name: Run Easy tests
         env:
           PR_USER: ${{ github.event.pull_request.user.login }}
           PR_DATE: ${{ github.event.pull_request.created_at}}
         run: |
-          chmod +x easy.sh
+          chmod +x ./easy.sh
           ./easy.sh $PR_USER $PR_DATE
 
       - name: Run Medium tests
@@ -51,11 +51,17 @@ jobs:
           PR_USER: ${{ github.event.pull_request.user.login }}
           PR_DATE: ${{ github.event.pull_request.created_at}}
         run: |
-          chmod +x easy.sh
-          ./easy.sh $PR_USER $PR_DATE
+          chmod +x ./medium.sh
+          ./medium.sh $PR_USER $PR_DATE
 
       - name: Run Hard tests
-        run: python3 challenges/hard/test_lambda_function3.py
+        env:
+          PR_USER: ${{ github.event.pull_request.user.login }}
+          PR_DATE: ${{ github.event.pull_request.created_at}}
+        run: |
+          chmod +x ./hard.sh
+          ./hard.sh $PR_USER $PR_DATE
+
 
 
           
