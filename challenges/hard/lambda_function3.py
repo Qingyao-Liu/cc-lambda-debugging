@@ -31,6 +31,8 @@ def lambda_handler(event, context=None):
     expr = expr.split(" ")
     res = []
 
+    print(res)
+
     for char in expr:
 
         if char in ["+", "-", "/", "*"]:
