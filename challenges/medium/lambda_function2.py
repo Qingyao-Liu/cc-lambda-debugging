@@ -47,9 +47,12 @@ def lambda_handler(event, context=None):
         else:
             res.append(char)
 
-    res = str(res)
+    word = ""
+
+    for char in res:
+        word += char
 
     return {
         'statusCode': 200,
-        'body': res
+        'body': word
     }
