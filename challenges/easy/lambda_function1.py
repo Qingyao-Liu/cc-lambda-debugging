@@ -9,6 +9,9 @@ import json
 
 def lambda_handler(event, context=None):
     celsius = event['temp']
+
+    if celsius is not None and celsius < 0:
+        celsius = abs(celsius)
     
     if celsius == None:
         return {
